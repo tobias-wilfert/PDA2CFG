@@ -8,9 +8,12 @@
 
 #include <set>
 #include <map>
+#include <tuple>
 #include <string>
 #include <utility>
 #include <unordered_set>
+
+#include "ContextFreeGrammar.h"
 
 #include "nlohmann/json.hpp"
 using json = nlohmann::json;
@@ -29,6 +32,9 @@ struct State {
 
   /// Construct a State with a specified name
   explicit State(std::string name);
+
+  /// Default constructor
+  State();
 };
 
 /// A Class that represents a push down automata (PDA)
@@ -73,6 +79,10 @@ class PushDownAutomaton {
    */
   explicit PushDownAutomaton(json j);
 
+  //TODO: Add documentation
+  /*
+  ContextFreeGrammar convertPDAtoCFG();
+   */
 
 };
 

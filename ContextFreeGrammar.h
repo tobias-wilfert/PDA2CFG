@@ -10,6 +10,9 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <utility>
+#include <fstream>
+#include <iomanip>
 #include <unordered_set>
 
 #include "nlohmann/json.hpp"
@@ -18,11 +21,14 @@ using json = nlohmann::json;
 /// The namespace used by the DPA to CFG conversion algorithm
 namespace DPA2CFG {
 
+/// Forward declaration inorder to make the class a friend of Productions
+class ContextFreeGrammar;
 /// Representation of a single replacement a variable can have
 using Replacement = std::vector<std::string>;
 
 // A struct that represents the productions of a CFG
 struct Productions {
+  friend ContextFreeGrammar;
  private:
   /**
    * Represents the productions of a CFG
@@ -77,7 +83,8 @@ class ContextFreeGrammar {
    * @param variables The Variables
    * @param terminals The Terminals
    */
-  ContextFreeGrammar(std::string start_symbol, Productions productions,
+  ContextFreeGrammar(std::string start_symbol,
+                     Productions productions,
                      std::unordered_set<std::string> variables,
                      std::unordered_set<std::string> terminals);
 
