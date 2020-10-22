@@ -72,6 +72,8 @@ class PushDownAutomaton {
   //TODO: Add documentation
 
   ContextFreeGrammar convertPDAtoCFG();
+
+  std::vector<std::vector<std::string>> getStatePermutations(int length)const;
 };
 
 } //namespace DPA2CFG

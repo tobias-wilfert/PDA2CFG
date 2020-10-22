@@ -1,0 +1,22 @@
+{
+  "_comment1": "DFA in the cursus p.84",
+  "States": ["p", "q"],
+  "Alphabet": ["0", "1"],
+  "StackAlphabet": ["X", "Z0"],
+
+  "Transitions": [
+    {"from": "q", "input": "1", "stacktop": "Z0", "to": "q", "replacement": ["X", "Z0"]},
+    {"from": "q", "input": "1", "stacktop": "X", "to": "q", "replacement": ["X", "X"]},
+    {"from": "q", "input": "0", "stacktop": "X", "to": "p", "replacement": ["X"]},
+    {"from": "q", "input": "", "stacktop": "X", "to": "q", "replacement": []},
+    {"from": "p", "input": "1", "stacktop": "X", "to": "p", "replacement": []},
+    {"from": "p", "input": "0", "stacktop": "Z0", "to": "q", "replacement": ["Z0"]}
+  ],
+  "_comment": "epsilon is literally the empty string (eg. the second transition)",
+
+  "StartState": "q",
+  "StartStack": "Z0",
+
+  "FinalStates": [],
+  "_comment": "This is optional. When this attribute is not present, accepting is done by empty stack."
+}

@@ -1,0 +1,136 @@
+{
+  "_comment": "Symbols may be multiple characters long, this is why each character in the body is it's own string.",
+  "_comment1": "CFG Generate in the cursus p.85",
+  "Productions": [
+    {
+      "body": [
+        "0",
+        "[pXp]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [
+        "0",
+        "[pXq]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "0",
+        "[qZ0p]"
+      ],
+      "head": "[pZ0p]"
+    },
+    {
+      "body": [
+        "0",
+        "[qZ0q]"
+      ],
+      "head": "[pZ0q]"
+    },
+    {
+      "body": [
+        "1",
+        "[pXp]",
+        "[qXp]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [
+        "1",
+        "[pXq]",
+        "[qXp]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "1",
+        "[pZ0p]",
+        "[qXp]"
+      ],
+      "head": "[qZ0p]"
+    },
+    {
+      "body": [
+        "1",
+        "[pZ0q]",
+        "[qXp]"
+      ],
+      "head": "[qZ0q]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXp]",
+        "[qXq]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qXq]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qZ0p]"
+      ],
+      "head": "[qZ0p]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qZ0q]"
+      ],
+      "head": "[qZ0q]"
+    },
+    {
+      "body": [
+        "1"
+      ],
+      "head": "[pXp]"
+    },
+    {
+      "body": [
+        "[qZ0p]"
+      ],
+      "head": "S"
+    },
+    {
+      "body": [
+        "[qZ0q]"
+      ],
+      "head": "S"
+    },
+    {
+      "body": [],
+      "head": "[qXq]"
+    }
+  ],
+  "Start": "S",
+  "Terminals": [
+    "0",
+    "1"
+  ],
+  "Variables": [
+    "S",
+    "[pXp]",
+    "[pXq]",
+    "[pZ0p]",
+    "[pZ0q]",
+    "[qXp]",
+    "[qXq]",
+    "[qZ0p]",
+    "[qZ0q]"
+  ]
+}

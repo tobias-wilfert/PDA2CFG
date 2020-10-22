@@ -55,21 +55,64 @@ DPA2CFG::ContextFreeGrammar DPA2CFG::PushDownAutomaton::convertPDAtoCFG() {
       if(std::get<1>(t2).empty()){ //(r,eps)
         productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + std::get<0>(t2) + "]", { std::get<1>(t.first)});
       }else{ // (r,Y1Y2 ... Yk)
-        //TODO: These can be quite a lot
         for(auto& r: states){
-          std::string reps = "";
-          for(auto& sr: std::get<1>(t2)){
-            reps += sr;
-            // TODO here need to be all permutations od r
-            // TODO: Should export the entire logic
+
+
+          for(auto& v: getStatePermutations(std::get<1>(t2).size()-1)){
+            //std::string seq = "";
+
+            std::vector<std::string> rep ={std::get<1>(t.first)};
+
+            if(!v.empty()){
+              rep.push_back("[" + std::get<0>(t2) + std::get<1>(t2).at(0) + v.at(0)  + "]");
+            }else{
+              rep.push_back("[" + std::get<0>(t2) + std::get<1>(t2).at(0) + r  + "]");
+            }
+
+            int size = std::get<1>(t2).size()-1;
+            for(int i=1; i< size; ++i){
+
+              rep.push_back("[" + v.at(i-1) + std::get<1>(t2).at(i) + v.at(i) + "]");
+              //seq += std::get<1>(t2)[i] + v[i] + "][" + v[i];
+            }
+            if(!v.empty()){
+              rep.push_back("[" + v.at(size-1) + std::get<1>(t2).back() +  r + "]");
+              //rep.push_back("[" + v.at(v.size()-2) + std::get<1>(t2).at(v.size()-1) + r + "]");
+            }
+
+            //seq += std::get<1>(t2).back() + r +"]";
+            // TODO: Some times wrong
+            // TODO: If the body between the body is empty insert an empty {} rather then an empty ""
+            productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + r + "]", rep);
+
+            //productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + r + "]", {std::get<1>(t.first), "[" + std::get<0>(t2) + "_" + seq});
+
           }
-          productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + r + "]", { std::get<1>(t.first) + "..." + reps});
+
+          //productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + r + "]", { "[" + std::get<1>(t.first) + "..." + reps});
           // for the length of Y we need to find combinations of rs
         }
       }
     }
   }
-
-
   return ContextFreeGrammar(start_symbol, productions, variables, terminals);
+}
+
+std::vector<std::vector<std::string>>
+DPA2CFG::PushDownAutomaton::getStatePermutations(int length) const {
+  std::vector<std::vector<std::string>> permutations={{}};
+
+  for(int i = 0; i < length; ++i){
+    std::vector<std::vector<std::string>> newPermutations;
+    for(std::vector<std::string> vec: permutations){
+      for(const State& state:states){
+        std::vector<std::string> n = vec;
+        n.push_back(state);
+        newPermutations.push_back(n);
+      }
+    }
+    permutations = newPermutations;
+  }
+
+  return permutations;
 }
