@@ -11,6 +11,7 @@
 #include <tuple>
 #include <string>
 #include <utility>
+#include <iostream>
 #include <unordered_set>
 
 #include "ContextFreeGrammar.h"
@@ -69,10 +70,8 @@ class PushDownAutomaton {
   explicit PushDownAutomaton(json j);
 
   //TODO: Add documentation
-  /*
-  ContextFreeGrammar convertPDAtoCFG();
-   */
 
+  ContextFreeGrammar convertPDAtoCFG();
 };
 
 } //namespace DPA2CFG
