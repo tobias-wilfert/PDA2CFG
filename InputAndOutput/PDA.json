@@ -10,7 +10,7 @@
     {"from": "q1", "input": "b", "stacktop": "a", "to": "q1", "replacement": []},
     {"from": "q1", "input": "", "stacktop": "Z", "to": "qf", "replacement": ["Z"]}
   ],
-  "_comment": "epsilon is literally the empty string (eg. the second transition)",
+  "_comment1": "epsilon is literally the empty string (eg. the second transition)",
 
   "StartState": "q0",
   "StartStack": "Z",

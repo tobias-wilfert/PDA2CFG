@@ -22,84 +22,120 @@ DPA2CFG::PushDownAutomaton::PushDownAutomaton(json j){
   }
 }
 
-// TODO Work here
-// TODO: Ask tom if we should filter useless states ?
-
 DPA2CFG::ContextFreeGrammar DPA2CFG::PushDownAutomaton::convertPDAtoCFG() {
-  // Need to make a new start symbol
-  std::string start_symbol = "_" + startState;
-  // Make all the variables
-  std::unordered_set<std::string> variables = {start_symbol};
-  // TODO DO this differently as it generates vars that might not even be used
-  // Rather only add the ones we make up on the go
-  for(auto& p: states){
-    for(auto& q: states){
-      for(auto& x: stackAlphabet){
-        variables.insert("[" + p + x + q + "]");
-        //std::cout << ("[" + p + x + q + "]") << std::endl;
-      }
-    }
-  }
-  // Terminals stay the same
-  std::unordered_set<std::string> terminals = inputAlphabet;
-  // Make all the productions
-  // Productions from the start state
   Productions productions;
-  for(auto& p: states){
-    productions.addProduction(start_symbol,{"[" + startState+stackStartSymbol + p + "]"});
-  }
-  // Make the productions from the transitions
-  for(auto& t: transitions){
-    // Need to loop over the multiple transitions there could be
-    for(auto& t2: t.second){
-      if(std::get<1>(t2).empty()){ //(r,eps)
-        std::vector<std::string> rep = {};
-        if(std::get<1>(t.first) != ""){ rep = {std::get<1>(t.first)}; }
-        productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + std::get<0>(t2) + "]", rep);
-      }else{ // (r,Y1Y2 ... Yk)
-        for(auto& r: states){
-          for(auto& v: getStatePermutations(std::get<1>(t2).size()-1)){
-            std::vector<std::string> rep ={std::get<1>(t.first)};
-            if(!v.empty()){
-              rep.push_back("[" + std::get<0>(t2) + std::get<1>(t2).at(0) + v.at(0)  + "]");
-            }else{
-              rep.push_back("[" + std::get<0>(t2) + std::get<1>(t2).at(0) + r  + "]");
-            }
-            int size = std::get<1>(t2).size()-1;
-            for(int i=1; i< size; ++i){
-              rep.push_back("[" + v.at(i-1) + std::get<1>(t2).at(i) + v.at(i) + "]");
-            }
-            if(!v.empty()){
-              rep.push_back("[" + v.at(size-1) + std::get<1>(t2).back() +  r + "]");
-            }
+  std::string start_symbol = "_" + startState; // Make new start symbol
+  std::unordered_set<std::string> terminals = inputAlphabet;
+  std::unordered_set<std::string> variables = {start_symbol};
 
-            // TODO: Some times wrong
-            // TODO: If the body between the body is empty insert an empty {} rather then an empty ""
-            if(rep.at(0) == ""){
-              std::cout << "sad" << std::endl;
-            }
-            productions.addProduction( "[" + std::get<0>(t.first) + std::get<2>(t.first) + r + "]", rep);
-          }
-        }
-      }
-    }
-  }
+  createProductionsFromStartSymbol(start_symbol, productions,variables);
+  createProductions(productions, variables);
   return ContextFreeGrammar(start_symbol, productions, variables, terminals);
 }
 
 std::vector<std::vector<std::string>>
 DPA2CFG::PushDownAutomaton::getStatePermutations(int length) const {
-  std::vector<std::vector<std::string>> permutations={{}};
-  for(int i = 0; i < length; ++i){
+  std::vector<std::vector<std::string>> permutationsSoFar={{}};
+  for(int currentLength = 0; currentLength < length; ++currentLength){
     std::vector<std::vector<std::string>> newPermutations;
-    for(std::vector<std::string> vec: permutations){
+    for(const std::vector<std::string>& permutation: permutationsSoFar){
       for(const State& state:states){
-        std::vector<std::string> n = vec;
-        n.push_back(state);
-        newPermutations.push_back(n);
+        std::vector<std::string> newPermutation = permutation;
+        newPermutation.push_back(state);
+        newPermutations.push_back(newPermutation);
       }
     }
-    permutations = newPermutations;
+    permutationsSoFar = newPermutations;
   }
-  return permutations;
+  return permutationsSoFar;
+}
+
+void DPA2CFG::PushDownAutomaton::createProductionsFromStartSymbol(
+    const std::string &startSymbol, DPA2CFG::Productions &productions,
+    std::unordered_set<std::string> &variables) const {
+  for(auto& p: states){
+    std::string var = "[" + startState+stackStartSymbol + p + "]";
+    productions.addProduction(startSymbol,{var});
+    variables.insert(var);
+  }
+}
+
+void DPA2CFG::PushDownAutomaton::createProductions(
+    DPA2CFG::Productions &productions,
+    std::unordered_set<std::string> &variables) const {
+
+  for(auto& t: transitions){
+    for(auto& t2: t.second){
+      std::string fromState = std::get<0>(t.first);
+      std::string onInput = std::get<1>(t.first);
+      std::string topOfStack = std::get<2>(t.first);
+      std::string toState = std::get<0>(t2);;
+      std::vector<std::string> stackReplacement = std::get<1>(t2);
+
+      if(stackReplacement.empty()){ //(r,eps)
+        createEpsilonProductions(
+            fromState,onInput,topOfStack,toState,productions,variables);
+      }else{ // (r,Y1Y2 ... Yk)
+        createNormalProductions(
+            fromState,onInput,topOfStack,toState,stackReplacement,
+            productions,variables);
+      }
+    }
+  }
+}
+
+void DPA2CFG::PushDownAutomaton::createEpsilonProductions(
+    const std::string &fromState,
+    const std::string &onInput,
+    const std::string &topOfStack,
+    const std::string &toState,
+    DPA2CFG::Productions &productions,
+    std::unordered_set<std::string> &variables) const {
+
+  std::vector<std::string> rep = {};
+  if(!onInput.empty()){ rep = {onInput};}
+  std::string var = "[" + fromState + topOfStack + toState + "]";
+  productions.addProduction(var, rep);
+  variables.insert(var);
+}
+
+void DPA2CFG::PushDownAutomaton::createNormalProductions(
+    const std::string &fromState,
+    const std::string &onInput,
+    const std::string &topOfStack,
+    const std::string &toState,
+    const std::vector<std::string> &stackReplacement,
+    DPA2CFG::Productions &productions,
+    std::unordered_set<std::string> &variables) const {
+
+  for(auto& r: states){
+    int size = stackReplacement.size()-1;
+    for(auto& v: getStatePermutations(size)){
+      std::vector<std::string> rep ={onInput};
+
+      if(!v.empty()){ // The head of the replacement
+        std::string var = "[" + toState + stackReplacement.at(0) + v.at(0)  + "]";
+        rep.push_back(var);
+        variables.insert(var);
+      }else{
+        std::string var = "[" + toState + stackReplacement.at(0) + r + "]";
+        rep.push_back(var);
+        variables.insert(var);
+      }
+      for(int i=1; i< size; ++i){ // The main body of the replacement
+        std::string var = "[" + v.at(i-1) + stackReplacement.at(i) + v.at(i) + "]";
+        rep.push_back(var);
+        variables.insert(var);
+      }
+      if(!v.empty()){ // The end of the replacement
+        std::string var = "[" + v.back() + stackReplacement.back() +  r + "]";
+        rep.push_back(var);
+        variables.insert(var);
+      }
+      // Conclusion
+      std::string var = "[" + fromState + topOfStack + r + "]";
+      productions.addProduction(var , rep);
+      variables.insert(var);
+    }
+  }
 }

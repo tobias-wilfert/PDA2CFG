@@ -1,0 +1,134 @@
+{
+  "Productions": [
+    {
+      "body": [
+        "1"
+      ],
+      "head": "[pXp]"
+    },
+    {
+      "body": [
+        "0",
+        "[qZ0p]"
+      ],
+      "head": "[pZ0p]"
+    },
+    {
+      "body": [
+        "0",
+        "[qZ0q]"
+      ],
+      "head": "[pZ0q]"
+    },
+    {
+      "body": [
+        "0",
+        "[pXp]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXp]",
+        "[pXp]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qXp]"
+      ],
+      "head": "[qXp]"
+    },
+    {
+      "body": [],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "0",
+        "[pXq]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXp]",
+        "[pXq]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qXq]"
+      ],
+      "head": "[qXq]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXp]",
+        "[pZ0p]"
+      ],
+      "head": "[qZ0p]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qZ0p]"
+      ],
+      "head": "[qZ0p]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXp]",
+        "[pZ0q]"
+      ],
+      "head": "[qZ0q]"
+    },
+    {
+      "body": [
+        "1",
+        "[qXq]",
+        "[qZ0q]"
+      ],
+      "head": "[qZ0q]"
+    },
+    {
+      "body": [
+        "[qZ0p]"
+      ],
+      "head": "_q"
+    },
+    {
+      "body": [
+        "[qZ0q]"
+      ],
+      "head": "_q"
+    }
+  ],
+  "Start": "_q",
+  "Terminals": [
+    "1",
+    "0"
+  ],
+  "Variables": [
+    "_q",
+    "[qZ0q]",
+    "[qXp]",
+    "[pZ0p]",
+    "[qZ0p]",
+    "[pXp]",
+    "[pZ0q]",
+    "[qXq]",
+    "[pXq]"
+  ]
+}

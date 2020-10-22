@@ -62,6 +62,31 @@ class PushDownAutomaton {
   std::map<std::tuple<State, std::string, std::string>,
            std::vector<std::tuple<State, std::vector<std::string>>>> transitions;
 
+  // TODO Add documentation
+
+  std::vector<std::vector<std::string>> getStatePermutations(int length)const;
+
+  void createProductionsFromStartSymbol(
+      const std::string& startSymbol, Productions& productions,
+      std::unordered_set<std::string>& variables) const;
+
+  void createProductions( Productions& productions,
+                          std::unordered_set<std::string>& variables) const;
+
+  void createEpsilonProductions(const std::string& fromState,
+                                const std::string& onInput,
+                                const std::string& topOfStack,
+                                const std::string& toState,
+                                Productions& productions,
+                                std::unordered_set<std::string>& variables) const;
+
+  void createNormalProductions(const std::string& fromState,
+                               const std::string& onInput,
+                               const std::string& topOfStack,
+                               const std::string& toState,
+                               const std::vector<std::string>& stackReplacement,
+                               Productions& productions,
+                               std::unordered_set<std::string>& variables) const;
  public:
   /**
    * Construct the PDA from a json containing a representation of the PDA
@@ -72,8 +97,6 @@ class PushDownAutomaton {
   //TODO: Add documentation
 
   ContextFreeGrammar convertPDAtoCFG();
-
-  std::vector<std::vector<std::string>> getStatePermutations(int length)const;
 };
 
 } //namespace DPA2CFG

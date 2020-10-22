@@ -1,0 +1,567 @@
+{
+  "Productions": [
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfZq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfZq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1Zq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfZq0]"
+      ],
+      "head": "[q0Zq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfZq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfZq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1Zq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfZq1]"
+      ],
+      "head": "[q0Zq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfZqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfZqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1Zqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfZqf]"
+      ],
+      "head": "[q0Zqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfaq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfaq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1aq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfaq0]"
+      ],
+      "head": "[q0aq0]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfaq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfaq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1aq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfaq1]"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "b"
+      ],
+      "head": "[q0aq1]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq0]",
+        "[q0aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aq1]",
+        "[q1aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq0]",
+        "[q0aqf]",
+        "[qfaqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq0]",
+        "[q0aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aq1]",
+        "[q1aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aq1]",
+        "[q1aqf]",
+        "[qfaqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq0]",
+        "[q0aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaq1]",
+        "[q1aqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "a",
+        "[q0aqf]",
+        "[qfaqf]",
+        "[qfaqf]"
+      ],
+      "head": "[q0aqf]"
+    },
+    {
+      "body": [
+        "",
+        "[qfZq0]"
+      ],
+      "head": "[q1Zq0]"
+    },
+    {
+      "body": [
+        "",
+        "[qfZq1]"
+      ],
+      "head": "[q1Zq1]"
+    },
+    {
+      "body": [
+        "",
+        "[qfZqf]"
+      ],
+      "head": "[q1Zqf]"
+    },
+    {
+      "body": [
+        "b"
+      ],
+      "head": "[q1aq1]"
+    },
+    {
+      "body": [
+        "[q0Zq0]"
+      ],
+      "head": "_q0"
+    },
+    {
+      "body": [
+        "[q0Zq1]"
+      ],
+      "head": "_q0"
+    },
+    {
+      "body": [
+        "[q0Zqf]"
+      ],
+      "head": "_q0"
+    }
+  ],
+  "Start": "_q0",
+  "Terminals": [
+    "b",
+    "a"
+  ],
+  "Variables": [
+    "_q0",
+    "[q1aq0]",
+    "[q0Zq1]",
+    "[q0aq1]",
+    "[q1Zq0]",
+    "[qfZq1]",
+    "[qfZq0]",
+    "[q0Zq0]",
+    "[q0Zqf]",
+    "[q0aqf]",
+    "[q0aq0]",
+    "[q1aq1]",
+    "[q1aqf]",
+    "[qfaq0]",
+    "[qfaq1]",
+    "[q1Zq1]",
+    "[qfaqf]",
+    "[q1Zqf]",
+    "[qfZqf]"
+  ]
+}
