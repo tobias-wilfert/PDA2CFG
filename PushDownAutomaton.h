@@ -23,19 +23,8 @@ namespace DPA2CFG {
 
 /// Representation of an alphabet for the PDA
 using Alphabet = std::unordered_set<std::string>;
-
-/// A struct representing a state in the PDA
-struct State {
- public:
-  /// The name of the state
-  std::string name;
-
-  /// Construct a State with a specified name
-  explicit State(std::string name);
-
-  /// Default constructor
-  State();
-};
+/// Representation of a state in a PDA
+using State = std::string;
 
 /// A Class that represents a push down automata (PDA)
 class PushDownAutomaton {
