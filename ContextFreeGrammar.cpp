@@ -34,7 +34,6 @@ DPA2CFG::ContextFreeGrammar::ContextFreeGrammar(
                                                         variables(std::move(variables)),
                                                         terminals(std::move(terminals)) {}
 
-// TODO: Check if this works, as it has changed a little
 json DPA2CFG::ContextFreeGrammar::generateJsonRepresentation() const {
   json j{
       {"Start", startSymbol},

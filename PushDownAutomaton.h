@@ -62,31 +62,48 @@ class PushDownAutomaton {
   std::map<std::tuple<State, std::string, std::string>,
            std::vector<std::tuple<State, std::vector<std::string>>>> transitions;
 
-  // TODO Add documentation
-
+  /**
+   * Get permutation of states
+   * @param length The length the permutations should have
+   * @return Vector of vectors with size length containing strings
+   * representing states
+   */
   std::vector<std::vector<std::string>> getStatePermutations(int length)const;
 
+  /**
+   * Creat the productions for the CFG representation of the PDA
+   * @return All the internal productions of the CFG
+   */
+  Productions createProductions() const;
+
+  /**
+   * Create productions from the new start state to variables [q0Z0p]
+   * Where q0 is the old start state Z0 is the stack top and p is a state
+   * @param startSymbol The new start symbol
+   * @param productions A set of productions that the new productions are
+   * inserted in
+   */
   void createProductionsFromStartSymbol(
-      const std::string& startSymbol, Productions& productions,
-      std::unordered_set<std::string>& variables) const;
+      const std::string& startSymbol, Productions& productions) const;
 
-  void createProductions( Productions& productions,
-                          std::unordered_set<std::string>& variables) const;
-
-  void createEpsilonProductions(const std::string& fromState,
+  /// Create the productions of the for [qXr] -> a
+  static void createEpsilonProductions(const std::string& fromState,
                                 const std::string& onInput,
                                 const std::string& topOfStack,
                                 const std::string& toState,
-                                Productions& productions,
-                                std::unordered_set<std::string>& variables) const;
+                                Productions& productions) ;
 
+  /// Create all the normal productions for the CFG representation
   void createNormalProductions(const std::string& fromState,
                                const std::string& onInput,
                                const std::string& topOfStack,
                                const std::string& toState,
                                const std::vector<std::string>& stackReplacement,
-                               Productions& productions,
-                               std::unordered_set<std::string>& variables) const;
+                               Productions& productions) const;
+
+  /// Create all the variables for the CFG representation of the PDA
+  std::unordered_set<std::string> createVariables() const;
+
  public:
   /**
    * Construct the PDA from a json containing a representation of the PDA
@@ -94,8 +111,7 @@ class PushDownAutomaton {
    */
   explicit PushDownAutomaton(json j);
 
-  //TODO: Add documentation
-
+  /// Converts the PDA into a CFG
   ContextFreeGrammar convertPDAtoCFG();
 };
 
