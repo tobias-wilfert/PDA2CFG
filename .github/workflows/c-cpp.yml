@@ -1,4 +1,4 @@
-name: C/C++ CI
+name: C/C++ CI (Ubuntu)
 
 on:
   push:
@@ -15,3 +15,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: build
       run: mkdir build && cd build && cmake .. && make
+        
